@@ -1,4 +1,4 @@
-#windowPop{
+.windowPop{
     position: fixed;
     z-index:25;
     width: 100%;

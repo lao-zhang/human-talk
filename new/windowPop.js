@@ -1,8 +1,7 @@
 $(function () {
-    var windowPop=$("#windowPop");
-    windowPop.hide();
+    $(".windowPop").hide();
     $("#text").click(function (event) {
-        windowPop.fadeIn();
+        $(".windowPop").fadeIn();
         event=event||window.event;
         event.preventDefault();
         $(".close").css({
@@ -10,13 +9,13 @@ $(function () {
             "top":0
         })
     });
-    windowPop.click(function (event) {
+    $(".windowPop").click(function (event) {
         if(event.target.id==="windowPop"){
-            windowPop.hide();
+            $(".windowPop").hide();
         }
     });
     $(".close").click(function () {
-        $("#windowPop").hide();
+        $(".windowPop").hide();
     });
     //计算剩余
     $(".count").hide();
