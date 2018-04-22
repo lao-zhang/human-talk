@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="md.*,java.util.*"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,9 +18,9 @@
     <h3>写下你的故事</h3>
     <p class="count">还能输入<span class="totalWord"></span>字</p>
     <!--表单提交的内容，只有textarea的内容-->
-    <form name="myFrom" action="addText" method="post" >
+    <form action="">
     <div class="mainContent">
-    <div class="inputText"><textarea placeholder="说点什么？"  id="word" name="word" maxlength="140"></textarea></div>
+    <div class="inputText"><textarea placeholder="说点什么？" name="" id="simplyText" maxlength="140"></textarea></div>
         <button type="submit">提交</button>
     </div>
     </form>
@@ -82,25 +80,6 @@
             <!--所有要显示的文章-->
         <div class="content">
 
-        <div align="center">
-        <% 
-        List<Message> list=(List)request.getAttribute("list");
-								if(list!=null){
-									Iterator<Message> e=list.iterator();
-									while(e.hasNext()){
-										Message m=e.next();
-		%>
-		<%if(m.getType().equals("text")) {%>
-		<center><font size=1 > <<%=m.getDate()+" "+m.getTime()%>></font></center><br>
-		<center><font  size=3><%=m.getId()%></font> : <font size=4> <b><%=m.getContent()%></b></font></center><br>
-		<hr width=10%></hr>
-        <% } else {%>
-		<center><font size=1 > <<%=m.getDate()+" "+m.getTime()%>></font></center><br>
-		<center><font  size=3><%=m.getId()%></font> : <br><img src=<%="file:///"+m.getContent()%> width=200></center><br>
-		<hr width=10%></hr>
-        <%}}}%>
-	   </div>
-        
         </div>
             <!--主体右侧部分-->
         </div>
