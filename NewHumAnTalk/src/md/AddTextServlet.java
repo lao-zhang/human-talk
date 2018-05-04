@@ -40,6 +40,7 @@ public class AddTextServlet extends HttpServlet{
 		String time = now.get(Calendar.HOUR_OF_DAY)+":"+now.get(Calendar.MINUTE)+":"+now.get(Calendar.SECOND);
 		HttpSession session =request.getSession();
 		String id= (String)session.getAttribute("userid");
+		System.out.println("id is:"+id);
 		String type = "text";
 		String content = turn(request.getParameter("word"));
 		MessageDBAccess md=new MessageDBAccess();

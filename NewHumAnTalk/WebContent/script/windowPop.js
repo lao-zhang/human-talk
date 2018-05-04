@@ -20,6 +20,12 @@ $(function () {
         $(".pop_2").show();
         closeCss();
     });
+  //娱乐
+    $("#entertainment").on("click",function (event) {
+        event=window.event||event;
+        event.preventDefault();
+        $(this).siblings().toggle();
+    });
     //显示图片
     $("#file").change(function () {
         var that=this;

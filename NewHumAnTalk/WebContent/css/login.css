@@ -1,0 +1,33 @@
+.form-horizontal{
+    text-align: center;
+}
+.form-horizontal .heading{
+    display: block;
+    font-size:35px;
+    padding:35px 0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom:30px;
+}
+.form-horizontal .form-group{
+    padding: 0 40px;
+    position: relative;
+}
+.container #checkbox1{
+    margin-left: 30px;
+}
+.container #checkbox1+label{
+    height: 34px;
+    line-height: 34px;
+}
+.container .btn{
+    float: right;
+    margin-right: 30px;
+}
+
+#code{
+    font-style:italic;
+    font-weight:bold;
+    border:0;
+    letter-spacing:5px;
+    color:blue;
+}

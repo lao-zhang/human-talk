@@ -46,7 +46,7 @@ public class MessageDBAccess {
 		pstmt=conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 		rs=pstmt.executeQuery(sql);
 		pa=new Page();
-		pa.setPageSize(20);
+		pa.setPageSize(50);
 		pa.setPageCount(rs);
 		pa.setCurPage(curpage);
 		r=pa.setRs(rs);
@@ -54,7 +54,9 @@ public class MessageDBAccess {
 		for(int i=0;i<pa.getPageSize();i++) {
 	       if(r.next()) {
 			m=new Message();
-			m.setDate(rs.getString(1));
+			String date[] = rs.getString(1).split("-");
+			String newdate=date[1]+"-"+date[2];
+			m.setDate(newdate);
 			m.setTime(rs.getString(2));
 			m.setId(rs.getString(3));
 			m.setType(rs.getString(4));

@@ -8,6 +8,7 @@ abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertic
 input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}
 #yui3-css-stamp.css-reset{display:none}
 
+
 a{
     text-decoration: none;
 }
@@ -18,136 +19,123 @@ a{
     z-index: 22;
 }
 .header{
-    width: 1180px;
+    width: 1000px;
     height: 50px;
     margin: 0 auto;
-    background-color: #e0a800;
 }
 .header #logo{
-    width: 205px;
-    height: 50px;
+    width: 96px;
+    height: 40px;
+    margin-top:5px;
     float: left;
 }
 .header #logo .img-logo{
     display: inline-block;
     width: 100%;
     height: 100%;
-    background: url("../images/logo.png") 0 0 no-repeat;
+    background: url("../images/logo2.png") 0 0 no-repeat;
     background-size: 100%;
 }
 .header .right{
-    width: 510px;
-    height: 50px;
-    float: right;
-    background-color: yellow;
-}
-.header .right>ul{
-    width: 360px;
-    height: 50px;
-    float: left;
-}
-.header .right>ul li{
-    width: 72px;
-    height: 100%;
-    float: left;
-    text-align: center;
-}
-.header .right>ul li a{
-    font-size: 16px;
-    line-height: 50px;
-    color: #ff6600;
-}
-.header .login{
     width: 150px;
     height: 50px;
     float: right;
-    background-color: #ff6600;
+    position:relative;
 }
-.header .login ul{
-    width: 100%;
-    height: 100%;
+.header .right .login-in{
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -21px;
+    margin-left: -21px;
+    border-radius: 50%;
 }
-.header .login ul li{
-    width: 60px;
-    height: 25px;
-    margin-top: 10px;
-    line-height: 25px;
-    text-align: center;
-    float: right;
-}
-.header .login ul li a{
-    color: black;
-    line-height:100%;
-}
-.header .login ul li:nth-child(1){
-    width: 30px;
-    height:25px;
-    float: left;
-    background: url(images/nubia-syb-all.png) 0 0 no-repeat;
-}
+
 
 
 /*主体内容*/
 #middle{
     padding-top: 60px;
     width: 1000px;
-    height: 6080px;
     margin: 0 auto;
-    background-color: cadetblue;
+    border-bottom:1px solid #ccc;
 }
 #middle .article{
-    width: 720px;
-    height: 6060px;
+    width: 640px;
     float: left;
-    border: 1px #eee solid;
+    border: 1px #ccc solid;
 }
 #middle .article .top{
-    width: 720px;
+    width: 640px;
     height: 60px;
 }
 #middle .article .top .nav{
-    width: 680px;
+    width: 600px;
     height: 60px;
     margin: 0 auto;
+    border-bottom:1px solid #ccc;
 }
 
-#middle .article .nav ul{
-    width: 330px;
+#middle .article .nav ul[class="col"]{
+    width: 440px;
     height: 60px;
-    background-color: #ff6600;
 }
-#middle .article .nav ul li{
+#middle .article .nav ul[class="col"] li{
     width: 70px;
     height: 60px;
     margin-right: 40px;
     text-align: center;
     float: left;
-    background-color: #ff6600;
 }
-#middle .article .nav ul li a{
+#middle .article .nav ul[class="col"] li a{
     display: table;
     width: 66px;
     height: 30px;
 }
-#middle .article .nav ul li a span{
+#middle .article .nav ul[class="col"] li a span{
     height: 60px;
     display: table-cell;
     vertical-align: middle;
 }
-
+#middle .article .nav ul[class="col"]>li:last-child{
+    position: relative;
+}
+#middle .article .nav ul[class="amuse"]{
+    width: 90px;
+    height: 60px;
+    display: none;
+    position: absolute;
+    z-index: 22;
+    border:1px solid #ccc;
+    background-color:#cdd;
+}
+#middle .article .nav ul[class="amuse"] li{
+    width: 90px;
+    height: 30px;
+}
+#middle .article .nav ul[class="amuse"] li a{
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+}
 /*中间右侧部分固定*/
 #middle .aside{
-    width: 270px;
+    width: 342px;
     height: 560px;
     float: right;
     position: fixed;
-    background-color: saddlebrown;
+    border-right:1px solid #cdd;
 }
 #middle .aside #weather{
     width: 260px;
     margin: 10px auto;
-    height: 180px;
-    background-color: silver;
+    height: 140px;
+    font-weight: 500;
+    font-size:12px;
+    text-align:center;
 }
 #middle .aside #weather .ipAddress{
     width: 260px;
@@ -157,60 +145,84 @@ a{
 }
 #middle .aside #weather .date_1,.date_2{
     width: 260px;
-    height: 60px;
+    height: 40px;
     padding-bottom: 8px;
     margin-bottom: 5px;
-    border-bottom: 1px #f00 dashed;
-    border-top: 1px #f00 dashed;
+}
+#middle .aside #weather ,date_2{
+	border-bottom:1px solid #ccc;
 }
 #middle .aside #weather .localDate{
     width: 260px;
-    height: 30px;
+    height: 20px;
     text-align: center;
 }
-#middle .aside #weather .img-weather *{
-    padding-left: 5px;
-    vertical-align: middle;
+#middle .aside #weather .localWeather{
+    display:block;
+    width:100%;
+    text-align:center;
 }
 #middle .aside .extend-read{
     width: 260px;
     margin: auto;
-    height: 250px;
-    background-color: #ff6600;
+    height: 300px;
+   overflow: hidden;
 }
-
+#middle .aside .extend-read #mes-1,#mes-2{
+	padding:0 5px 0 5px;
+}
+#middle .aside .extend-read .changeColor{
+    color:#404040;
+    font-family: "\5fae\8f6f\96c5\9ed1";
+    font-weight:300;
+    font-size:12px;
+}
+#middle .aside .extend-read .changeColor:hover{
+    color: #db1011;
+}
 #middle .content{
-    width: 700px;
-    height: 6000px;
+    width: 620px;
     overflow: auto;
     margin: 0 auto;
-    background-color: #ff3b30;
 }
 #middle .content .author{
     width: 100px;
-    height: 40px;
     margin: 10px;
-    background-color: #f0f;
     float: left;
 }
+#middle .content .authorId{
+	font-weight:bold;
+	font-size:14px;
+	margin-bottom:5px;
+}
+#middle .content .displayTime{
+	font-size:12px;
+	color:#ccc;
+}
 #middle .content .row{
-    height: 250px;
     width: 100%;
-    border-bottom: 1px solid #e1e4e2;
+     border-bottom: 1px solid #cdd;
 }
 #middle .content .img-row{
-    border-bottom: 1px solid #e1e4e2;
+    border-bottom: 1px solid #cdd;
+}
+#middle .clearfix:after{
+	content:"";
+	display:block;
+	clear:both;
+	height:0;
+	line-height:0;
+	visibility:hidden;
 }
 #middle .content .text{
-    width: 560px;
-    height: 200px;
+    width: 468px;
+    padding:5px;
+    word-wrap:break-word;
     float: right;
     margin: 10px;
-    background-color: darkgreen;
 }
 #middle .content .imgShow{
     margin: 10px;
-    background-color: darkgreen;
 }
 #middle .content .imgShow img{
  max-width:300px;
@@ -244,14 +256,13 @@ a{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: firebrick;
+    border-top:1px solid #ccc;
 }
 /*分页主体设置*/
 
 #footer ul[class="changeItem"]{
-    width: 260px;
+    width: 160px;
     height: 30px;
-    background: darkgoldenrod;
 }
 #footer ul[class="changeItem"] li{
     list-style: none;
@@ -260,29 +271,18 @@ a{
     height: 100%;
     line-height: 30px;
     text-align: center;
-    background: darkcyan;
 }
 /*分页链接*/
-#footer ul[class="changeCal"]{
+#footer span[class="changeCal"]{
     width: 135px;
     height: 30px;
-}
-#footer ul[class="changeCal"]>li{
-    float: left;
-    width: 50%;
-    height: 30px;
-    line-height: 30px;
-    background-color: darkgreen;
-    text-align: center;
-}
-#footer ul[class="changeCal"]>li a{
-    font-size: 16px;
-    font-weight: bold;
+    display:block;
+    text-align:center;
+    line-height:30px;
 }
 #footer #info{
     width: 260px;
     height: 25px;
-    background: yellow;
     margin: auto;
     font-size:16px;
     text-align: center;

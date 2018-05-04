@@ -1,10 +1,29 @@
+//ajax获取数据
+var requestUrl = "https://news-at.zhihu.com/api/4/news/latest";
+//这里一定要注意，实际请求的url其实是以参数形式从eezzo.com读取的，因此我们都要对url进行编码，使用encodeURI方法即可
+$.getJSON("http://eezzo.com/API/CD", { url: encodeURI(requestUrl) }, function(json) {
+    for(var i=0;i<json.stories.length;i++){
+        var ele=$("<li></li>");
+        var link=$("<a></a>");
+        link.text(json.stories[i].title);
+        link.attr('href',"https://news-at.zhihu.com/story/"+json.stories[i].id).attr("target","_blank").addClass("changeColor");
+        link.appendTo(ele);
+        var mes=$("#mes-1");
+        ele.css({"border-bottom":"thin solid #987cb9",
+        "padding":"3px 0 3px 0"	
+        });
+        mes.append(ele);
+        $("#mes-2").html(mes.clone());
+    }
+});
+
 $(function () {
     //右边固定
-    $(".aside").css("left",$("#middle").offset().left+730);
+    $(".aside").css("left",$("#middle").offset().left+640);
     $(window).resize(function () {
-        $(".aside").css("left",$("#middle").offset().left+730-$(window).scrollLeft());
+        $(".aside").css("left",$("#middle").offset().left+640-$(window).scrollLeft());
     }).scroll(function () {
-        $(".aside").css("left",$("#middle").offset().left+730-$(window).scrollLeft());
+        $(".aside").css("left",$("#middle").offset().left+640-$(window).scrollLeft());
     });
     //回到顶部
 var getTop = document.getElementById("goTop");
@@ -54,14 +73,12 @@ getTop.onclick=function(){
                         var split_1=data_1.temperature.split("~");
                         split_1[0]="~"+split_1[0]+split_1[1].charAt(split_1[1].length-1);
                         $(".localWeather").html(data_1.wind+split_1.reverse().join(""));
-                            $(".weatherImg").attr("src",data_1.dayPictureUrl);
                         //第二天的天气
                         var data_2=baiduTQ.results[0].weather_data[1];
                         $(".next-date").html(data_2.date+" "+data_2.weather);
                         var split_2=data_2.temperature.split("~");
                         split_2[0]="~"+split_2[0]+split_2[1].charAt(split_2[1].length-1);
                         $(".localNextWeather").html(data_2.wind+split_2.reverse().join(""));
-                        $(".nextWeatherImg").attr("src",data_2.dayPictureUrl);
                     }
                 }
                 catch(err){
@@ -69,7 +86,26 @@ getTop.onclick=function(){
                 }
             }
         })
-    })
+    });
 
+    //内容推荐
+    //滚动页面
+        var area=$(".extend-read")[0];
+        var mes1=$("#mes-1");
+        var mes2=$("#mes-2");
+        function scrollTop() {
+            if(area.scrollTop>=mes1.height()){
+                area.scrollTop=0;
+            }else{
+                area.scrollTop++;
+            }
+        }
+        var myTimer=setInterval(scrollTop,40);
+        area.onmouseenter=function () {
+            clearInterval(myTimer);
+        };
+        area.onmouseleave=function () {
+            myTimer=setInterval(scrollTop,40);
+        };
 });
 
